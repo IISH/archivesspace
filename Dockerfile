@@ -16,6 +16,7 @@ RUN apt-get update && \
       openjdk-11-jre-headless \
       shared-mime-info \
       wget \
+      nodejs \
       unzip
 
 COPY . /source
