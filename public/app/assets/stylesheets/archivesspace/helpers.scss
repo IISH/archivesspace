@@ -6,14 +6,30 @@
   --bootstrap-rounded-corner-radius: 4px;
   --bootstrap-sans: 'Helvetica Neue', helvetica, arial, sans-serif;
   --bootstrap-default-white-hover: #eee;
+  --bootstrap-default-card-heading-bg-color: #f5f5f5;
+  --bootstrap-default-card-border-color: #ddd;
+  --bootstrap-default-card-border-radius: 3px;
+  --default-border-color: #ccc;
 }
 
 .flex {
   display: flex;
 }
 
+.flex-column {
+  flex-direction: column;
+}
+
+.align-items-start {
+  align-items: flex-start;
+}
+
 .align-items-center {
   align-items: center;
+}
+
+.self-center {
+  align-self: center;
 }
 
 .flex-grow-1 {
@@ -30,4 +46,24 @@
 
 .mb0 {
   margin-bottom: 0;
+}
+
+.p1 {
+  padding: 0.5rem;
+}
+
+.bg-gray-light {
+  background: var(--bootstrap-default-card-heading-bg-color);
+}
+
+.border {
+  border: 1px solid var(--default-border-color);
+}
+
+.rounded {
+  border-radius: var(--bootstrap-default-card-border-radius);
+}
+
+.text-xs {
+  font-size: 12px;
 }

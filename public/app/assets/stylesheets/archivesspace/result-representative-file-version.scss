@@ -1,0 +1,52 @@
+// TODO mobile first refactor based on stacking the <figure> underneath
+.result-repfv__figure {
+  flex-shrink: 0;
+  max-height: 150px;
+  width: 150px;
+  float: left;
+  margin-right: 1rem;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--default-border-color);
+}
+.result-repfv__a {
+  align-self: center;
+}
+.result-repfv__img {
+  height: 100px;
+  max-width: 100%;
+  object-fit: contain;
+}
+.result-repfv__figcaption {
+  padding: 0.5rem;
+  font-size: 12px;
+  background-color: var(--bootstrap-default-card-heading-bg-color);
+  overflow: hidden;
+}
+
+@media (min-width: 700px) {
+  .result-repfv__figure {
+    flex-shrink: 0;
+    max-height: 150px;
+    width: 150px;
+    float: left;
+    margin-right: 1rem;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--default-border-color);
+  }
+  .result-repfv__a {
+    align-self: center;
+  }
+  .result-repfv__img {
+    height: 100px;
+    max-width: 100%;
+    object-fit: contain;
+  }
+  .result-repfv__figcaption {
+    padding: 0.5rem;
+    font-size: 12px;
+    background-color: var(--bootstrap-default-card-heading-bg-color);
+    overflow: hidden;
+  }
+}

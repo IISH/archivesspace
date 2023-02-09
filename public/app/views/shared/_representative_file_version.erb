@@ -1,8 +1,18 @@
-<figure>
-  <a href="<%= uri %>" target="new" title="<%= t('digital_object._public.link')%>">
-    <img src="<%= uri %>" alt="<%= caption.blank? ? '' : caption %>">
+<figure class="<%= local_assigns[:figure_class] ? figure_class : '' %>" data-rep-file-version-wrapper>
+  <a 
+    href="<%= uri %>"
+    class="<%= local_assigns[:a_class] ? a_class : '' %>
+    target="new"
+    title="<%= t('digital_object._public.link')%>">
+    <img
+      loading="lazy"
+      src="<%= uri %>"
+      alt="<%= caption.blank? ? '' : caption %>"
+      class="<%= local_assigns[:img_class] ? img_class : '' %>">
   </a>
   <% unless caption.blank? %>
-    <figcaption><%= caption %></figcaption>
+    <figcaption class="<%= local_assigns[:figcaption_class] ? figcaption_class : '' %>">
+      <%= caption %>
+    </figcaption>
   <% end %>
 </figure>

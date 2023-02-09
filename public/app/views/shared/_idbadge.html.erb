@@ -38,6 +38,8 @@ end
     <% url = result.uri %>
 <% end %>
 
+
+
 <%= (props.fetch(:full,false)? '<h1>' : '<h3>').html_safe %>
   <% if !props.fetch(:full,false) %>
     <a class="record-title" href="<%= app_prefix(url) %>">

@@ -141,8 +141,11 @@ describe ResourcesController, type: :controller do
       get(:show, params: {rid: @repo.id, id: @resource_with_rep_instance.id})
 
       expect(response).to render_template("shared/_representative_file_version")
-      expect(response.body).to have_css("figure img[src='#{@fv_uri}']")
-      expect(response.body).to match("<figcaption>#{@fv_caption}")
+      page = Capybara.string(response.body)
+      expect(page).to have_css("figure[data-rep-file-version-wrapper] img[src='#{@fv_uri}']")
+      page.find(:css, 'figure[data-rep-file-version-wrapper] figcaption') do |fc|
+        expect(fc.text).to have_content(@fv_caption)
+      end
     end
   end
 end
