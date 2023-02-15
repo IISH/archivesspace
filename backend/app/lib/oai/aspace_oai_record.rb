@@ -17,6 +17,21 @@ class ArchivesSpaceOAIRecord
     @jsonmodel_record.uri
   end
 
+  def to_oai_cmdi
+    raise OAI::FormatException.new unless @jsonmodel_record['jsonmodel_type'] == 'resource'
+
+    RequestContext.open(:repo_id => @sequel_record.repo_id) do
+      cmdi = ASpaceExport.model(:cmdi).from_resource(@jsonmodel_record, @sequel_record.tree(:all, mode = :sparse), AppConfig[:oai_ead_options])
+
+      record = []
+      ASpaceExport::stream(cmdi).each do |chunk|
+        record << chunk
+      end
+
+      remove_xml_declaration(record.join(""))
+    end
+  end
+
   def to_oai_ead
     raise OAI::FormatException.new unless @jsonmodel_record['jsonmodel_type'] == 'resource'
 
