@@ -1,0 +1,22 @@
+#accession_form .identifier-fields select, #resource_form .identifier-fields select {
+    margin-right: 4px;
+    width: auto;
+    display: inline-block;
+}
+
+#accession_form .identifier-fields em, #resource_form .identifier-fields em {
+    margin-right: 4px;
+}
+
+#accession_form .identifier-fields em.id_1_placeholder, #resource_form .identifier-fields em.id_1_placeholder {
+    margin-right: 12px;
+    margin-left: 8px;
+}
+
+#accession_id_2_, #accession_id_3_, #resource_id_2_, #resource_id_3_ {
+    visibility: hidden;
+}
+
+#accession_id_1_, #resource_id_1_ {
+    cursor: pointer !important;
+}

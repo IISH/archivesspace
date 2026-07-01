@@ -1,0 +1,70 @@
+/* Custom CSS file to restore current staff view styling to 3.5 version styling */
+/**/
+/**/
+/* set body to 14px, do not set root html font size to avoid shrinking rem-based components*/
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+    background-color: #fff;
+}
+
+h1 {
+    font-size: 36px;
+    line-height: 39.6px;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 30px;
+    line-height: 33px;
+    margin-bottom: 8px;
+}
+
+h3 {
+    font-size: 24px;
+    line-height: 26.4px;
+    margin-bottom: 10px;
+}
+
+#tabledSearchResults th,
+#tabledSearchResults td {
+    padding: 5px;
+    line-height: 1.42857143;
+    vertical-align: top;
+    border-top: 1px solid #ddd;
+}
+
+#tabledSearchResults th.col.dates,
+#tabledSearchResults th.col.extents {
+    vertical-align: middle;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+/* toolbars wrap when buttons don't fit to prevent overflow */
+.record-toolbar,
+.btn-toolbar,
+.form-actions,
+div[class*="toolbar"] {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 0.25rem !important;
+    align-items: center !important;
+    overflow: visible !important;
+}
+
+.record-toolbar .btn-group,
+.btn-toolbar .btn-group,
+div[class*="toolbar"] .btn-group {
+    display: inline-flex !important;
+    flex-wrap: wrap !important;
+    gap: 0.25rem !important;
+}
+
+
+.record-toolbar .btn.dropdown-toggle,
+.btn-toolbar .btn.dropdown-toggle {
+    padding-right: 18px !important;
+}

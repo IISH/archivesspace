@@ -1,0 +1,7 @@
+<% if ['accessions', 'resources'].include? controller.controller_name and ['create', 'new'].include? controller.action_name %>
+  <%= javascript_include_tag "#{@base_url}/assets/generate_identifier.js" %>
+<% end %>
+
+<% if ['accessions', 'resources'].include? controller.controller_name %>
+  <%= stylesheet_link_tag "#{@base_url}/assets/generate_identifier.css" %>
+<% end %>
