@@ -4,3 +4,6 @@
 [submodule "plugins/lcnaf"]
 	path = plugins/lcnaf
 	url = https://github.com/archivesspace-plugins/lcnaf
+[submodule "plugins/aspace-oauth"]
+	path = plugins/aspace-oauth
+	url = git@github.com:IISH/aspace-oauth.git
