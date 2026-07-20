@@ -1,4 +1,4 @@
-repository_menu_controller: hello_world
+system_menu_controller: hello_world
 parents:
   accession:
     name: hello_worlds

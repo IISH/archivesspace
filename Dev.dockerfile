@@ -30,7 +30,8 @@ RUN echo 'Downloading Packages' && \
       vim \
       wget \
     && \
-    gem install bundler rubocop solargraph && \
+    git config --global --add safe.directory /archivesspace && \
+    gem install bundler rubocop solargraph pry-remote ruby-debug-ide debase && \
     wget -q https://github.com/mozilla/geckodriver/releases/download/v${GECKODRIVER_VERSION}/geckodriver-v${GECKODRIVER_VERSION}-linux64.tar.gz && \
     tar -xzf geckodriver-v${GECKODRIVER_VERSION}-linux64.tar.gz -C /usr/local/bin && \
     chmod +x /usr/local/bin/geckodriver && \
