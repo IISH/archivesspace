@@ -255,21 +255,33 @@ The oai service had you start it:
 
 http://localhost:4568
 
+Add some new records, hello world messages, etc.
+
+#### Direct backend API
+
+http://localhost:4567/whosaidhello
+
+
 ### 9. Debugging
 
-The development image we built will do hotswapping, so the code is immediately rendered.
+   The development image we built will do hotswapping, so the code is immediately rendered.
 
-Remote debugging is possible with **pry**:
+   Remote debugging is possible with **pry**:
 
-Docs: https://github.com/pry/pry
+   Docs: https://github.com/pry/pry
 
-Place **pry** in ruby code after the code you find interesting:
+   Place **pry** in ruby code after the code you find interesting:
 
-    binding.pry
+   binding.pry
 
-Similar in the views:
+   Similar in the views:
 
-    <% binding.pry %>
+   <% binding.pry %>
+
+#### Questions
+
+1. How can you add a backend API method to only return one hello_world resource?
+2. How can you remove a resource?
 
 
 ### This is the base scaffold.
@@ -356,3 +368,25 @@ services:
   - Examples:
     - `./build/run frontend:test -Dpattern=features/repositories_spec.rb`
 
+===============================================================
+
+#### Answers
+
+    Endpoint.get('/whosaidhello/:id')
+        .description("Get a specific hello world entry by ID")
+        .params(["id", :id])
+        .permissions([])
+        .returns([200, "(:hello_world)"]) \
+    do
+        json = WhoSaidHello.to_jsonmodel(params[:id])
+        json_response(json)
+    end
+    
+    Endpoint.delete('/whosaidhello/:id')
+        .description("Delete a specific hello world entry by ID")
+        .params(["id", :id])
+        .permissions([])
+        .returns([200, :deleted]) \
+    do
+        handle_delete(WhoSaidHello, params[:id])
+    end
