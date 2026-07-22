@@ -1,4 +1,3 @@
-# coding: utf-8
 class MARCModel < ASpaceExport::ExportModel
   model_for :marc21
 
@@ -28,9 +27,6 @@ class MARCModel < ASpaceExport::ExportModel
     :notes => :handle_notes,
     :finding_aid_description_rules => df_handler('fadr', '040', ' ', ' ', 'e')
   }
-
-  # ANW-1416: Maps ISO-3166 country code to MARC country code
-  ISO_3166_TO_MARC = {"AE" => "ts", "AF" => "af", "AG" => "aq", "AI" => "ag", "AL" => "aa", "AM" => "ai", "AO" => "ao", "AQ" => "ay", "AR" => "ag", "AS" => "as", "AT" => "au", "AU" => "at", "AW" => "aw", "AX" => "xx", "AZ" => "aj", "BA" => "bn", "BB" => "bb", "BD" => "bg", "BE" => "be", "BF" => "xx", "BG" => "bu", "BH" => "ba", "BI" => "bd", "BJ" => "dm", "BL" => "sc", "BM" => "bm", "BN" => "bx", "BO" => "bo", "BQ" => "xx", "BR" => "bl", "BS" => "bf", "BT" => "bt", "BV" => "bv", "BW" => "bs", "BY" => "bw", "BZ" => "bh", "CA" => "xxc", "CC" => "xb", "CD" => "cg", "CF" => "cx", "CG" => "cf", "CH" => "sz", "CI" => "iv", "CK" => "cw", "CL" => "cl", "CM" => "cm", "CN" => "cc", "CO" => "ck", "CR" => "cr", "CU" => "cu", "CV" => "cv", "CW" => "co", "CX" => "xa", "CY" => "cy", "CZ" => "xr", "DE" => "gw", "DJ" => "ft", "DK" => "dk", "DM" => "dq", "DO" => "dr", "DZ" => "ae", "EC" => "ec", "EE" => "er", "EG" => "ua", "EH" => "ss", "ER" => "ea", "ES" => "sp", "ET" => "et", "FI" => "fi", "FJ" => "fj", "FK" => "fk", "FM" => "fm", "FO" => "fa", "FR" => "fr", "GA" => "go", "GB" => "xxk", "GD" => "gd", "GE" => "gs", "GF" => "gv", "GG" => "gg", "GH" => "gh", "GI" => "gi", "GL" => "gl", "GM" => "gm", "GN" => "gv", "GP" => "gp", "GQ" => "eg", "GR" => "gr", "GS" => "xs", "GT" => "gt", "GU" => "gu", "GW" => "pg", "GY" => "gy", "HK" => "xx", "HM" => "hm", "HN" => "ho", "HR" => "ci", "HT" => "ht", "HU" => "hu", "ID" => "io", "IE" => "ie", "IL" => "is", "IM" => "im", "IN" => "ii", "IO" => "bi", "IQ" => "iq", "IR" => "ir", "IS" => "ic", "IT" => "it", "JE" => "je", "JM" => "jm", "JO" => "jo", "JP" => "ja", "KE" => "ke", "KG" => "kg", "KH" => "cb", "KI" => "gb", "KM" => "cq", "KN" => "xd", "KP" => "kn", "KR" => "ko", "KW" => "ku", "KY" => "cj", "KZ" => "kz", "LA" => "xx", "LB" => "le", "LC" => "xk", "LI" => "lh", "LK" => "ce", "LR" => "lb", "LS" => "lo", "LT" => "li", "LU" => "lu", "LV" => "lv", "LY" => "ly", "MA" => "mr", "MC" => "mc", "MD" => "mv", "ME" => "mo", "MF" => "st", "MG" => "mg", "MH" => "xe", "MK" => "xn", "ML" => "ml", "MM" => "br", "MN" => "mp", "MO" => "xx", "MP" => "nw", "MQ" => "mq", "MR" => "mu", "MS" => "mj", "MT" => "mm", "MU" => "mf", "MV" => "xc", "MW" => "mw", "MX" => "mx", "MY" => "my", "MZ" => "mz", "NA" => "sx", "NC" => "nl", "NE" => "ng", "NF" => "nx", "NG" => "nr", "NI" => "nq", "NL" => "ne", "NO" => "no", "NP" => "np", "NR" => "nu", "NU" => "xh", "NZ" => "nz", "OM" => "mk", "PA" => "pn", "PE" => "pe", "PF" => "fp", "PG" => "pp", "PH" => "ph", "PK" => "pk", "PL" => "pl", "PM" => "xl", "PN" => "pc", "PR" => "pr", "PS" => "xx", "PT" => "po", "PW" => "pw", "PY" => "py", "QA" => "qa", "RE" => "re", "RO" => "rm", "RS" => "rb", "RU" => "ru", "RW" => "rw", "SA" => "su", "SB" => "bp", "SC" => "se", "SD" => "sj", "SE" => "sw", "SG" => "si", "SH" => "xj", "SI" => "xv", "SJ" => "xx", "SK" => "xo", "SL" => "si", "SM" => "sm", "SN" => "sg", "SO" => "so", "SR" => "sr", "SS" => "sd", "ST" => "sf", "SV" => "es", "SX" => "sn", "SY" => "sy", "SZ" => "xx", "TC" => "tc", "TD" => "cd", "TF" => "xx", "TG" => "tg", "TH" => "th", "TJ" => "ta", "TK" => "tl", "TL" => "em", "TM" => "tk", "TN" => "ti", "TO" => "to", "TR" => "tu", "TT" => "tr", "TV" => "tv", "TW" => "xx", "TZ" => "tz", "UA" => "un", "UG" => "ug", "UM" => "xxu", "US" => "xxu", "UY" => "uy", "UZ" => "uz", "VA" => "vc", "VC" => "xm", "VE" => "ve", "VG" => "vb", "VI" => "vi", "VN" => "vm", "VU" => "nn", "WF" => "wf", "WS" => "ws", "YE" => "ye", "YT" => "ot", "ZA" => "sa", "ZM" => "za", "ZW" => "rh"}
 
   attr_accessor :id
   attr_accessor :leader_string
@@ -110,6 +106,7 @@ class MARCModel < ASpaceExport::ExportModel
   # subtypes of 'archival object':
 
   def self.from_resource(obj, opts = {})
+
     marc = self.from_archival_object(obj, opts)
     marc.apply_map(obj, @resource_map)
     marc.leader_string = "00000np$aa2200000 u 4500"
@@ -212,7 +209,6 @@ class MARCModel < ASpaceExport::ExportModel
 
   def handle_id(*ids)
     ids.reject! {|i| i.nil? || i.empty?}
-    df('099', ' ', ' ').with_sfs(['a', ids.join('.')])
   end
 
 
@@ -244,7 +240,8 @@ class MARCModel < ASpaceExport::ExportModel
     if date_codes.length > 0
       # we want to pass in all our date codes as separate subfield tags
       # e.g., with_sfs(['a', title], [code1, val1], [code2, val2]... [coden, valn])
-      df('245', ind1, '0').with_sfs(['a', title + ","], *date_codes)
+      # df('245', ind1, '0').with_sfs(['a', title + ","], *date_codes)
+      df('245', ind1, '0').with_sfs(['a', title], *date_codes)
     else
       df('245', ind1, '0').with_sfs(['a', title])
     end
@@ -379,19 +376,7 @@ class MARCModel < ASpaceExport::ExportModel
 
 
   def handle_primary_creator(linked_agents)
-    # ANW-504: get look for primary flag and creator role to find primary agent
-    primary_creator = linked_agents.find {|a| a['is_primary'] && a['role'] == 'creator'}
-
-    # use primary creator as 1xx agent, if present
-    link = nil
-    if primary_creator
-      link = primary_creator
-    else
-      # otherwise, use first found with role = creator
-      link = linked_agents.find {|a| a['role'] == 'creator'}
-    end
-
-
+    link = linked_agents.find {|a| a['role'] == 'creator'}
     return nil unless link
     return nil unless link["_resolved"]["publish"] || @include_unpublished
 
@@ -432,22 +417,11 @@ class MARCModel < ASpaceExport::ExportModel
   # TODO: DRY this up
   # this method is very similair to handle_primary_creator and handle_agents
   def handle_other_creators(linked_agents)
-    primary_creator = linked_agents.find {|a| a['is_primary'] && a['role'] == 'creator'}
-
-    # if there is NOT a primary creator, automatically exclude the first in the list
-    # of creators to get 7xx tags since it was chosen as primary in #handle_primary_creator above
-
-    if primary_creator
-      creators = linked_agents.select {|a| a['role'] == 'creator'} || []
-    else
-      creators = linked_agents.select {|a| a['role'] == 'creator'}[1..-1] || []
-    end
-
+    creators = linked_agents.select {|a| a['role'] == 'creator'}[1..-1] || []
     creators = creators + linked_agents.select {|a| a['role'] == 'source'}
 
     creators.each_with_index do |link, i|
       next unless link["_resolved"]["publish"] || @include_unpublished
-      next if link['is_primary']
 
       creator = link['_resolved']
       name = creator['display_name']
@@ -574,6 +548,7 @@ class MARCModel < ASpaceExport::ExportModel
 
   def handle_notes(notes)
     notes.each do |note|
+
       prefix =  case note['type']
                 when 'dimensions'; "Dimensions"
                 when 'physdesc'; "Physical Description note"
@@ -590,7 +565,7 @@ class MARCModel < ASpaceExport::ExportModel
 
                   when 'arrangement', 'fileplan'
                     ['351', 'a']
-                  when 'odd', 'dimensions', 'physdesc', 'materialspec', 'physloc', 'phystech', 'physfacet', 'processinfo', 'separatedmaterial'
+                  when 'dimensions', 'physdesc', 'materialspec', 'physloc', 'phystech', 'physfacet'
                     ['500', 'a']
                   when 'accessrestrict'
                     ['506', 'a']
@@ -603,20 +578,20 @@ class MARCModel < ASpaceExport::ExportModel
                   when 'acqinfo'
                     ind1 = note['publish'] ? '1' : '0'
                     ['541', ind1, ' ', 'a']
-                  when 'relatedmaterial'
+                  when 'relatedmaterial', 'separatedmaterial'
                     ['544', 'd']
                   when 'bioghist'
                     ['545', 'a']
                   when 'custodhist'
                     ind1 = note['publish'] ? '1' : '0'
                     ['561', ind1, ' ', 'a']
-                  when 'appraisal'
+                  when 'appraisal', 'processinfo'
                     ind1 = note['publish'] ? '1' : '0'
                     ['583', ind1, ' ', 'a']
                   when 'accruals'
                     ['584', 'a']
                   when 'altformavail'
-                    ['535', '2', ' ', 'a']
+                    ['530', '2', ' ', 'a']
                   when 'originalsloc'
                     ['535', '1', ' ', 'a']
                   when 'userestrict', 'legalstatus'
@@ -639,20 +614,6 @@ class MARCModel < ASpaceExport::ExportModel
         end
       end
 
-      # ANW-1350: Export bibliography notes to 581
-      # Bibliography notes have a different structure than the notes handled above, so they are processed separately
-
-      if note['jsonmodel_type'] == "note_bibliography"
-        if note['publish'] || @include_unpublished
-          note['content'].each do |c|
-            df!('581', ' ', ' ').with_sfs(['a', c])
-          end
-
-          note['items'].each do |i|
-            df!('581', ' ', ' ').with_sfs(['a', i])
-          end
-        end
-      end
     end
   end
 
@@ -661,71 +622,37 @@ class MARCModel < ASpaceExport::ExportModel
     extents.each do |ext|
       e = ext['number']
       t = "#{I18n.t('enumerations.extent_extent_type.'+ext['extent_type'], :default => ext['extent_type'])}"
-      d = ext['dimensions']
-      p = ext['physical_details']
 
-      if ext['container_summary']
-        t << " (#{ext['container_summary']})"
-      end
+      subfield_300_a = "#{e} #{t}"
 
-      df!('300').with_sfs(['a', e], ['f', t], ['c', d], ['b', p])
-
+      df!('300').with_sfs(['a', subfield_300_a], ['f', ext['container_summary']])
     end
   end
 
+
   # 3/28/18: Updated: ANW-318
-  # 4/7/22: Updated: ANW-1071
-  def handle_ead_loc(ead_loc, publish, uri, slug)
+  def handle_ead_loc(ead_loc)
     # If there is EADlocation
     #<datafield tag="856" ind1="4" ind2="2">
     #  <subfield code="z">Finding aid online:</subfield>
     #  <subfield code="u">EADlocation</subfield>
     #</datafield>
-    # if config option is set, output a second 856 with slugged (or not) PUI URL as long as it's not the same as the EADLocation
-
-    #<datafield tag="856" ind1="4" ind2="2">
-    #  <subfield code="z">Finding aid online:</subfield>
-    #  <subfield code="u">slugged URL</subfield>
-    #</datafield>
-
     if ead_loc && !ead_loc.empty?
       df('856', '4', '2').with_sfs(
-                                    ['z', "Finding aid online:"],
-                                    ['u', ead_loc]
-                                  )
-    end
-
-    if AppConfig[:enable_public] && AppConfig[:include_pui_finding_aid_urls_in_marc_exports] && publish
-
-      if AppConfig[:use_human_readable_urls] &&
-         AppConfig[:use_slug_finding_aid_urls_in_marc_exports]
-
-        rec_type = uri.split('/')[3]
-        link = AppConfig[:public_proxy_url] + "/#{rec_type}/#{slug}"
-      else
-        link = AppConfig[:public_proxy_url] + uri
-      end
-
-      unless link == ead_loc
-        df!('856', '4', '2').with_sfs(
-                                  ['z', "Finding aid online:"],
-                                  ['u', link]
-                                )
-      end
+        ['z', "Finding aid online:"],
+        ['u', ead_loc]
+      )
     end
   end
 
-  def handle_ark(ark_name)
-    return if ark_name.nil?
-    return unless [:arks_enabled]
-
+  def handle_ark(id, type='resource')
     # If ARKs are enabled, add an 856
     #<datafield tag="856" ind1="4" ind2="2">
     #  <subfield code="z">Archival Resource Key:</subfield>
     #  <subfield code="u">ARK URL</subfield>
     #</datafield>
-
-    if ark_url = ark_name['current']
+    if AppConfig[:arks_enabled]
+      ark_url = ArkName::get_ark_url(id, type.to_sym)
       df('856', '4', '2').with_sfs(
         ['z', "Archival Resource Key:"],
         ['u', ark_url]
@@ -809,17 +736,6 @@ class MARCModel < ASpaceExport::ExportModel
     return name_fields
   end
 
-  def get_primary_agent_record_identifier(agent)
-    # ANW-1414: add primary agent_record_identifier if present
-    primary_identifier_record = agent['agent_record_identifiers'].first {|ari| ari['primary_identifier'] == true }
-
-    if primary_identifier_record
-      return primary_identifier_record['record_identifier']
-    else
-      return nil
-    end
-  end
-
 
   def gather_agent_person_subfield_mappings(name, role_info, agent, terms=nil)
     joint = name['name_order'] == 'direct' ? ' ' : ', '
@@ -831,18 +747,16 @@ class MARCModel < ASpaceExport::ExportModel
     dates       = name['dates'] rescue nil
     qualifier   = name['qualifier'] rescue nil
     fuller_form = name['fuller_form'] rescue nil
-    primary_identifier = get_primary_agent_record_identifier(agent)
 
     name_fields = [
-                   ["a", name_parts],
-                   ["b", number],
-                   ["c", extras],
-                   ["d", dates],
-                   subfield_e,
-                   ["g", qualifier],
-                   ["q", fuller_form],
-                   ["0", primary_identifier],
-                  ].compact.reject {|a| a[1].nil? || a[1].empty?}
+      ["a", name_parts],
+      ["b", number],
+      ["c", extras],
+      ["d", dates],
+      subfield_e,
+      ["g", qualifier],
+      ["q", fuller_form]
+    ].compact.reject {|a| a[1].nil? || a[1].empty?}
 
     unless terms.nil?
       name_fields.concat handle_agent_terms(terms)
@@ -858,7 +772,7 @@ class MARCModel < ASpaceExport::ExportModel
     return name_fields
   end
 
-    #For family types
+  #For family types
   def handle_agent_family_punctuation(name_fields)
     # TODO: DRY this up eventually. Leaving it as it is for now in case the logic changes.
     #If subfield $d is present, the value of the preceding subfield must end in a colon.
@@ -890,15 +804,13 @@ class MARCModel < ASpaceExport::ExportModel
     family_name = name['family_name'] rescue nil
     qualifier   = name['qualifier'] rescue nil
     dates       = name['dates'] rescue nil
-    primary_identifier = get_primary_agent_record_identifier(agent)
 
     name_fields = [
-                    ['a', family_name],
-                    ['d', dates],
-                    ['c', qualifier],
-                    subfield_e,
-                    ["0", primary_identifier],
-                  ].compact.reject {|a| a[1].nil? || a[1].empty?}
+      ['a', family_name],
+      ['d', dates],
+      ['c', qualifier],
+      subfield_e,
+    ].compact.reject {|a| a[1].nil? || a[1].empty?}
 
     unless terms.nil?
       name_fields.concat handle_agent_terms(terms)
@@ -914,8 +826,8 @@ class MARCModel < ASpaceExport::ExportModel
     return name_fields
   end
 
-    #For corporation types
-    # TODO: DRY this up eventually. Leaving it as it is for now in case the logic changes.
+  #For corporation types
+  # TODO: DRY this up eventually. Leaving it as it is for now in case the logic changes.
   def handle_agent_corporate_punctuation(name_fields)
     name_fields.sort! {|a, b| a[0][0] <=> b[0][0]}
 
@@ -995,25 +907,25 @@ class MARCModel < ASpaceExport::ExportModel
       subfield_b_2 = sub_name2
     end
 
-    primary_identifier = get_primary_agent_record_identifier(agent) || find_authority_id(agent['names'])
-
     name_fields = [
-                    ['a', primary_name],
-                    ['b', subfield_b_1],
-                    ['b', subfield_b_2],
-                    subfield_e,
-                    ['n', number],
-                    ['g', qualifier],
-                  ].compact.reject {|a| a[1].nil? || a[1].empty?}
+      ['a', primary_name],
+      ['b', subfield_b_1],
+      ['b', subfield_b_2],
+      subfield_e,
+      ['n', number],
+      ['g', qualifier]
+    ].compact.reject {|a| a[1].nil? || a[1].empty?}
 
     unless terms.nil?
       name_fields.concat handle_agent_terms(terms)
     end
 
     name_fields = handle_agent_corporate_punctuation(name_fields)
-
-    name_fields.push(['0', primary_identifier]) unless primary_identifier.nil?
     name_fields.push(subfield_4) unless subfield_4.nil?
+
+    authority_id = find_authority_id(agent['names'])
+    subfield_0 = authority_id ? [0, authority_id] : nil
+    name_fields.push(subfield_0) unless subfield_0.nil?
 
     return name_fields
   end
