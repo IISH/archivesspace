@@ -215,27 +215,27 @@ Although you could already spin up the archivesspace services right now and logi
 
 Terminal A:
 
-Using pry and remote-pry:
-
-    dcomp exec app ./build/run backend:devserver
+    dcomp exec -it app ./build/run backend:devserver
 
 Terminal B:
 
-Using pry and remote-pry:
+    dcomp exec -it app ./build/run frontend:devserver
 
-    dcomp exec app ./build/run frontend:devserver
+Terminal C:
 
-Optional Terminal C for the public catalog:
+    dcomp exec app ./build/run indexer
+
+Optional Terminal D for the public catalog:
 
 It is optional, as the plugin does not extend anything here.
 
-    dcomp exec app ./build/run public:devserver
+    dcomp exec -it app ./build/run public:devserver
 
-Optional Terminal D:
+Optional Terminal E:
 
 Also optional for the OAI2 server.
 
-    dcomp exec app ./build/run oai:devserver
+    dcomp exec -it app ./build/run oai:devserver
 
 ### 8. Look around
 
