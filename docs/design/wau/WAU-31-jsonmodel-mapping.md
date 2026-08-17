@@ -1,7 +1,7 @@
 # WAU-31 — Data Envelope Plugin Skeleton + JSONModel Field-Mapping Proposal
 
 > **Status:** DESIGN/PROPOSAL increment. No controllers/endpoints/UI implemented.  
-> **Target repo:** IISH/archivesspace branch `howtodo-plugin-development`  
+> **Target repo:** IISH/archivesspace branch `data-envelope-plugin`
 > **Profile:** `clarin.eu:cr1:p_1708423613607` (Stalling Data Envelope, 277 nodes = 72 Components + 205 Elements)
 
 ---
