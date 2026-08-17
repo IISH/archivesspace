@@ -52,6 +52,7 @@ locales.diff
 Gemfile.local
 supervisord.*
 mysql-connector*.jar
+mysql/
 common/config/config.rb
 backend/default
 frontend/default
